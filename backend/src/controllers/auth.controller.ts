@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import prisma from '../db/prisma';
+import { supabase } from '../config/supabase';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecretjwt';
 
@@ -14,24 +14,44 @@ export const register = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const existingUser = await prisma.user.findUnique({ where: { email } });
+    const { data: existingUser, error: existingUserError } = await supabase
+      .from("users")
+      .select("*")
+      .eq("email", email)
+      .maybeSingle();
+
+    if (existingUserError) {
+      throw existingUserError;
+    }
+
     if (existingUser) {
-      res.status(409).json({ error: 'User already exists' });
+      res.status(409).json({ error: "User already exists" });
       return;
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await prisma.user.create({
-      data: {
+
+    const { data: user, error: insertError } = await supabase
+      .from("users")
+      .insert({
         email,
         password: hashedPassword,
         name,
-      },
-    });
+      })
+      .select()
+      .single();
+
+    if (insertError) {
+      throw insertError;
+    }
 
     res.status(201).json({
-      message: 'User created successfully',
-      user: { id: user.id, email: user.email, name: user.name },
+      message: "User created successfully",
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+      },
     });
   } catch (error) {
     console.error('Registration Error:', error);
@@ -48,9 +68,20 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
+    const { data: user, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("email", email)
+      .maybeSingle();
+
+    if (error) {
+      console.error(error);
+      res.status(500).json({ error: "Database error" });
+      return;
+    }
+
     if (!user) {
-      res.status(401).json({ error: 'Invalid credentials' });
+      res.status(401).json({ error: "Invalid credentials" });
       return;
     }
 
