@@ -1,0 +1,266 @@
+.treeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  background-color: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.treeItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--bg-hover);
+
+    .hoverAction {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.rootFolderRow {
+  font-weight: 600;
+  border: 1px solid transparent;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.subfolderRow {
+  font-weight: 500;
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.expandBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--text-secondary);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+  }
+}
+
+.emptyPlaceholder {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+
+.chevronMotion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.folderIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemTitle {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    color: var(--accent-color, #38bdf8);
+    text-decoration: underline;
+  }
+}
+
+.itemBadge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.publicTag {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+}
+
+.hoverAction {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.menuBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+  }
+}
+
+.childrenContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  border-left: 1.5px solid var(--border-color);
+  padding-left: 0.85rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  gap: 0.25rem;
+  overflow: hidden;
+}
+
+/* Bookmark Link Items */
+.bookmarkRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+  font-size: 0.9rem;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--bg-hover);
+
+    .hoverAction {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.bookmarkLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.faviconContainer {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background-color: var(--bg-surface, #ffffff);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.faviconImg {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.defaultFavicon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.bookmarkTitle {
+  color: var(--text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+
+  &:hover {
+    color: var(--accent-color, #38bdf8);
+    text-decoration: underline;
+  }
+}
+
+.domainText {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.bookmarkRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.externalLinkBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  padding: 3px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent-color, #38bdf8);
+  }
+}

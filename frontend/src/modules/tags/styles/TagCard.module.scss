@@ -1,0 +1,79 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background-color: var(--bg-card, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: var(--color-primary, #3b82f6);
+  }
+}
+
+.tagInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.colorIndicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nameGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #0f172a);
+  margin: 0;
+}
+
+.tagSlug {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #64748b);
+  margin-top: 2px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bookmarkCount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 20px;
+  background-color: var(--bg-hover, #f1f5f9);
+  color: var(--text-secondary, #64748b);
+}
+
+.menuBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary, #64748b);
+  border-radius: 4px;
+
+  &:hover {
+    background-color: var(--bg-hover, #f1f5f9);
+    color: var(--text-primary, #0f172a);
+  }
+}

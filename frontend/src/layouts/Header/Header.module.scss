@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 1.5rem;
+    background-color: var(--bg-surface, #ffffff);
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-secondary, #4b5563);
+    cursor: pointer;
+    padding: 0.25rem;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary, #111827);
+}
+
+.brandIcon {
+    font-size: 1.5rem;
+}

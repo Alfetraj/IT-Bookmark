@@ -1,0 +1,59 @@
+# ==========================================
+# Stage 1: Build TypeScript
+# ==========================================
+FROM node:20-bookworm-slim AS builder
+
+WORKDIR /app
+
+COPY package*.json tsconfig.json ./
+RUN npm ci
+
+COPY src ./src
+RUN npm run build
+
+# ==========================================
+# Stage 2: Production Runner
+# ==========================================
+FROM node:20-bookworm-slim AS runner
+
+WORKDIR /app
+ENV NODE_ENV=production
+
+# Install Playwright dependencies for headless Chromium
+RUN apt-get update && apt-get install -y \
+    wget \
+    gnupg \
+    ca-certificates \
+    procps \
+    libnss3 \
+    libnspr4 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxrandr2 \
+    libgbm1 \
+    libasound2 \
+    libpango-1.0-0 \
+    libcairo2 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY package*.json ./
+RUN npm ci --omit=dev && npm cache clean --force
+
+# Install chromium binary for playwright
+RUN npx playwright install chromium
+
+# Copy compiled JavaScript output
+COPY --from=builder /app/dist ./dist
+
+# Create non-root user for security
+USER node
+
+EXPOSE 3000
+
+CMD ["node", "dist/server.js"]

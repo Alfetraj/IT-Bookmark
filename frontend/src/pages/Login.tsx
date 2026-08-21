@@ -23,8 +23,8 @@ const Login = () => {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center', backgroundColor: 'var(--bg-primary)' }}>
-      <div className="glass-card" style={{ width: '400px', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center', alignItems: 'center', background: 'var(--gradient-main)' }}>
+      <div className="glass-card" style={{ width: '400px', display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: 0 }}>
         <h2 style={{ textAlign: 'center', color: 'var(--accent-color)' }}>IT Bookmark</h2>
         <h3 style={{ textAlign: 'center' }}>Sign in to your account</h3>
         
@@ -37,7 +37,7 @@ const Login = () => {
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'rgba(255,255,255,0.05)', color: 'white', outline: 'none' }}
+              style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'transparent', color: 'var(--text-primary)', outline: 'none' }}
               required 
             />
           </div>
@@ -47,7 +47,7 @@ const Login = () => {
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'rgba(255,255,255,0.05)', color: 'white', outline: 'none' }}
+              style={{ width: '100%', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'transparent', color: 'var(--text-primary)', outline: 'none' }}
               required 
             />
           </div>

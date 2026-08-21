@@ -18,9 +18,12 @@
     "start": "docker-compose up -d"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@types/he": "^1.2.3",
+    "concurrently": "^8.2.2",
+    "sass-embedded": "^1.100.0"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.110.5"
+    "@supabase/supabase-js": "^2.110.5",
+    "he": "^1.2.0"
   }
 }

@@ -36,7 +36,7 @@ const Register = () => {
     padding: '0.75rem 1rem',
     borderRadius: '8px',
     border: '1px solid var(--border-color)',
-    background: 'rgba(255,255,255,0.05)',
+    background: 'transparent',
     color: 'var(--text-primary)',
     outline: 'none',
     fontSize: '0.95rem',
@@ -48,7 +48,7 @@ const Register = () => {
       height: '100vh',
       justifyContent: 'center',
       alignItems: 'center',
-      background: 'var(--bg-primary)',
+      background: 'var(--gradient-main)',
     }}>
       <div className="glass-card" style={{ width: '420px', marginTop: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         <div style={{ textAlign: 'center' }}>

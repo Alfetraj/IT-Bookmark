@@ -1,0 +1,74 @@
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.trigger {
+    cursor: pointer;
+    display: inline-flex;
+}
+
+.menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    min-width: 160px;
+    background-color: var(--bg-surface, #ffffff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 6px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0.25rem 0;
+    z-index: 50;
+    animation: fadeIn 0.15s ease-out;
+}
+
+.align-left {
+    left: 0;
+}
+
+.align-right {
+    right: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: var(--text-primary, #374151);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s;
+
+    &:hover {
+        background-color: var(--bg-hover, #f3f4f6);
+    }
+}
+
+.danger {
+    color: var(--danger-color, #dc2626);
+
+    &:hover {
+        background-color: var(--danger-light, #fef2f2);
+    }
+}
+
+.icon {
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

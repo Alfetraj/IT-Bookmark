@@ -1,0 +1,55 @@
+.menu {
+    position: fixed;
+    min-width: 160px;
+    background-color: var(--bg-surface, #ffffff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 6px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem 0;
+    z-index: 1000;
+    animation: scaleIn 0.1s ease-out;
+    transform-origin: top left;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: var(--text-primary, #374151);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--bg-hover, #f3f4f6);
+    }
+}
+
+.danger {
+    color: var(--danger-color, #dc2626);
+
+    &:hover {
+        background-color: var(--danger-light, #fef2f2);
+    }
+}
+
+.icon {
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

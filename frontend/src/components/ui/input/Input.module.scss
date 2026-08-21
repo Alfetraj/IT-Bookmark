@@ -1,0 +1,46 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary, #4b5563);
+}
+
+.input {
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+
+    &:focus {
+        border-color: var(--primary-color, #007bff);
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+
+    &.hasError {
+        border-color: var(--danger-color, #ef4444);
+
+        &:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+    }
+}
+
+.errorText {
+    font-size: 0.75rem;
+    color: var(--danger-color, #ef4444);
+    margin-top: 0.25rem;
+}
+
+.helperText {
+    font-size: 0.75rem;
+    color: var(--text-muted, #6b7280);
+    margin-top: 0.25rem;
+}

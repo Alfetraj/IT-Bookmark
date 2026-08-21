@@ -1,0 +1,48 @@
+# ===========================
+# Run Project
+# ===========================
+npm run dev
+# Local: http://localhost:5173/
+
+# ===========================
+# Git Status
+# ===========================
+git status
+
+# Show current branch
+git branch
+
+# Show remote repository
+git remote -v
+
+# ===========================
+# Check Changes
+# ===========================
+git diff
+git diff --cached
+
+# Commit History
+git log --oneline --graph --decorate -10
+
+# ===========================
+# Get Latest Code
+# ===========================
+git pull origin main
+
+# ===========================
+# Stage Changes
+# ===========================
+git add .
+
+# Check staged files
+git status
+
+# ===========================
+# Commit
+# ===========================
+git commit -m "Describe your changes"
+
+# ===========================
+# Push
+# ===========================
+git push origin main

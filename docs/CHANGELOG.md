@@ -6,19 +6,17 @@
 
 ---
 
-## [Unreleased]
+## [1.0.0] — 2026-08-21
 
 ### Added
-- Initial project documentation suite:
-  - `PROJECT_CONTEXT.md` — Project vision, philosophy, and technology rationale
-  - `ARCHITECTURE.md` — Clean Architecture design, monorepo structure, data flows
-  - `DATABASE_SCHEMA.md` — Full PostgreSQL schema with RLS, indexes, triggers, migrations strategy
-  - `FEATURE_MATRIX.md` — Comprehensive feature list with priorities and phases
-  - `ROADMAP.md` — 4-phase development roadmap (Q3 2026 – Q2 2027)
-  - `API_SPEC.md` — Complete REST API specification with request/response shapes
-  - `PROGRESS.md` — Progress tracker and decision log
-  - `TODO.md` — Granular task list organized by milestone
-  - `CHANGELOG.md` — This file
+- **Complete Bookmark Management**: Metadata scraping, favicon resolution, tagging, search, and nesting collections.
+- **Automated Web Archiving**: Headless Chromium Playwright worker capturing screenshots, generating vector PDFs, and parsing clean article reader HTML via Mozilla Readability.
+- **RSS Feed Ingestion**: Scheduled feed polling using `pg-boss` queue with built-in DNS-level SSRF defense.
+- **Collaboration & Public Sharing**: Collection sharing with Viewer/Editor roles and cryptographic guest share links (`/shared/:token`).
+- **Universal Import & Export**: Netscape HTML format and Pocket HTML import with full JSON/HTML export.
+- **Production Hardening**: Security headers (`Helmet`), CORS policies, and rate limiting (`express-rate-limit`).
+- **Docker Compose Production Topology**: Multi-stage Dockerfiles for backend (Node.js/Playwright) and frontend (Nginx Alpine) with automated health checks.
+- **Documentation**: Comprehensive `README.md` and `docs/SELF_HOSTING.md`.
 
 ---
 
